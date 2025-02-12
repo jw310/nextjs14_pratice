@@ -93,7 +93,7 @@ export default function TestPage() {
           <span className='relative z-10'>Click Me</span>
           {/* <div className='absolute inset-1 bg-gray-900'></div> */}
           <div
-            className='animate-surround absolute inset-0 z-[-1]'
+            className='absolute inset-0 z-[-1] animate-surround'
             style={{
               background: 'conic-gradient(#45ffd8, #bfff45, #45ffd8, #bfff45)',
               // background: 'linear-gradient(to bottom, #45ffd8, #bfff45)',
@@ -101,7 +101,8 @@ export default function TestPage() {
           ></div>
         </button>
       </div>
-      <div className='flex flex-col items-center justify-center'>
+
+      {/* <div className='flex flex-col items-center justify-center'>
         <button
           className={cn(
             'relative overflow-hidden rounded-md px-6 py-3 text-xl font-bold tracking-wide',
@@ -111,12 +112,63 @@ export default function TestPage() {
           <span className='z-3 relative'>Click Me</span>
           <div
             className={cn(
-              'animate-surround absolute inset-0 left-1/2 top-1/2 z-[-1] origin-[0%_0%]',
+              'absolute inset-0 left-1/2 top-1/2 z-[-1] origin-[0%_0%] animate-surround',
               'bg-gradient-to-r from-cyan-500 to-blue-500'
             )}
           ></div>
         </button>
+      </div> */}
+
+      <div className={cn('')}>
+        <button
+          className={cn(
+            'relative overflow-hidden rounded-md px-6 py-3 text-xl font-bold tracking-wide',
+            'flex items-center justify-center bg-gray-300'
+          )}
+        >
+          <span
+            className={cn(
+              'absolute -left-[100%] top-0 block h-1 w-full',
+              'animate-animationLeft'
+            )}
+            style={{
+              background: 'linear-gradient(90deg, transparent, #03e9f4)',
+            }}
+          ></span>
+          <span
+            className={cn(
+              'absolute -top-[100%] right-0 block h-full w-1',
+              'animate-animationTop'
+            )}
+            style={{
+              background: 'linear-gradient(180deg, transparent, #03e9f4)',
+              animationDelay: '0.5s',
+            }}
+          ></span>
+          <span
+            className={cn(
+              'absolute -right-[100%] bottom-0 h-1 w-full',
+              'animate-animationRight'
+            )}
+            style={{
+              background: 'linear-gradient(270deg, transparent, #03e9f4)',
+              animationDelay: '1s',
+            }}
+          ></span>
+          <span
+            className={cn(
+              'absolute -bottom-[100%] left-0 h-full w-1',
+              'animate-animationBottom'
+            )}
+            style={{
+              background: 'linear-gradient(360deg, transparent, #03e9f4)',
+              animationDelay: '1.5s',
+            }}
+          ></span>
+          Click Me
+        </button>
       </div>
+
       {/* loading */}
       <div className='m-auto text-gray-200'>
         <svg
@@ -168,8 +220,32 @@ export default function TestPage() {
         />
       </div>
       {/* Tab */}
-      <div className='mt-10'>
+      <div className={cn('mt-5')}>
         <TabGroup tabs={tabs} />
+      </div>
+      {/* backgroundBall */}
+      <div className={cn('relative mt-5 h-[190px] w-[250px] bg-gray-100')}>
+        <div
+          className={cn(
+            'relative z-10 h-full w-full bg-[#ffffff8c] mix-blend-overlay backdrop-blur-[8px]'
+          )}
+        ></div>
+        <div
+          className={cn(
+            'animate-moveOne absolute h-20 w-20 rounded-[50%]  bg-green-600'
+          )}
+        ></div>
+        <div
+          className={cn(
+            'animate-moveTwo absolute h-20 w-20 rounded-[50%] bg-yellow-600'
+          )}
+        ></div>
+        <div
+          className={cn(
+            'absolute h-[100px] w-[100px] bg-yellow-600 mix-blend-overlay'
+          )}
+          style={{ animation: 'move 15s linear infinite alternate' }}
+        ></div>
       </div>
     </div>
   );

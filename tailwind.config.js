@@ -98,7 +98,12 @@ module.exports = {
         spin: 'spin 2s linear infinite',
         fadeIn: 'fadeIn 0.5s ease-in-out',
         fadeOut: 'fadeOut 0.5s ease-in-out forwards',
-        surround: 'surround 2s linear infinite',
+        moveOne: 'moveOne 5s infinite',
+        moveTwo: 'moveTwo 5s infinite',
+        animationLeft: 'animationLeft 2s linear infinite',
+        animationTop: 'animationTop 2s linear infinite',
+        animationRight: 'animationRight 2s linear infinite',
+        animationBottom: 'animationBottom 2s linear infinite',
       },
       keyframes: {
         // 往右上指
@@ -154,9 +159,35 @@ module.exports = {
           from: { opacity: 0, transform: 'translateX(0%)' },
           to: { opacity: 1, transform: 'translateX(1000%)' },
         },
-        surround: {
-          '0%': { transform: 'rotate(0deg)' },
-          '100%': { transform: 'rotate(360deg)' },
+        moveOne: {
+          '0%, 100%': { top: '30px', left: '20px' },
+          '20%': { top: '50px', left: '40px' },
+          '40%': { top: '80px', left: '70px' },
+          '60%': { top: '35px', left: '90px' },
+          '80%': { top: '70px', left: '70px' },
+        },
+        moveTwo: {
+          '0%, 100%': { top: '90px', left: '90px' },
+          '20%': { top: '50px', left: '40px' },
+          '40%': { top: '60px', left: '20px' },
+          '60%': { top: '35px', left: '90px' },
+          '80%': { top: '70px', left: '60px' },
+        },
+        animationLeft: {
+          '0%': { left: '-100%' },
+          '50%, 100%': { left: '100%' },
+        },
+        animationTop: {
+          '0%': { top: '-100%' },
+          '50%, 100%': { top: '100%' },
+        },
+        animationRight: {
+          '0%': { right: '-100%' },
+          '50%, 100%': { right: '100%' },
+        },
+        animationBottom: {
+          '0%': { bottom: '-100%' },
+          '50%, 100%': { bottom: '100%' },
         },
       },
     },
