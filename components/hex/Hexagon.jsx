@@ -11,6 +11,7 @@ const Hexagon = ({
   text = '',
   textColor = 'white',
   textSize = 'text-sm',
+  spacing = true,
 }) => {
   const [isHovered, setIsHovered] = useState(false);
 
@@ -33,7 +34,7 @@ const Hexagon = ({
     .join(' ');
 
   return (
-    <div className={cn('relative inline-block')}>
+    <div className={cn('relative inline-block', spacing && 'mr-2')}>
       <svg
         width={size}
         height={size}

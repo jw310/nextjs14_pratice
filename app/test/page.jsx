@@ -4,6 +4,8 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useFormState } from 'react-dom';
 
+import { cn } from '@/lib/clsx';
+
 import chevronDownIcon from '@/assets/chevron-down.svg';
 
 import { testPOST } from '@/actions/test';
@@ -50,6 +52,7 @@ export default function TestPage() {
           </div>
         </button>
       </form>
+      {/* Button */}
       <div className='m-auto rounded-lg bg-gray-600 px-6 py-3 text-gray-200'>
         <div className='group relative overflow-hidden'>
           <span className='invisible'>Hover over me</span>
@@ -85,6 +88,36 @@ export default function TestPage() {
           </div>
         </a>
       </Link>
+      <div className='flex flex-col items-center justify-center'>
+        <button className='relative overflow-hidden rounded-md px-6 py-3 text-xl font-bold uppercase tracking-wide text-white before:absolute before:inset-1 before:rounded-md before:bg-gray-500'>
+          <span className='relative z-10'>Click Me</span>
+          {/* <div className='absolute inset-1 bg-gray-900'></div> */}
+          <div
+            className='animate-surround absolute inset-0 z-[-1]'
+            style={{
+              background: 'conic-gradient(#45ffd8, #bfff45, #45ffd8, #bfff45)',
+              // background: 'linear-gradient(to bottom, #45ffd8, #bfff45)',
+            }}
+          ></div>
+        </button>
+      </div>
+      <div className='flex flex-col items-center justify-center'>
+        <button
+          className={cn(
+            'relative overflow-hidden rounded-md px-6 py-3 text-xl font-bold tracking-wide',
+            'before:absolute before:inset-[3px] before:rounded-md before:bg-gray-500'
+          )}
+        >
+          <span className='z-3 relative'>Click Me</span>
+          <div
+            className={cn(
+              'animate-surround absolute inset-0 left-1/2 top-1/2 z-[-1] origin-[0%_0%]',
+              'bg-gradient-to-r from-cyan-500 to-blue-500'
+            )}
+          ></div>
+        </button>
+      </div>
+      {/* loading */}
       <div className='m-auto text-gray-200'>
         <svg
           className='h-8 w-8 animate-spin text-black'
@@ -107,10 +140,8 @@ export default function TestPage() {
           ></path>
         </svg>
       </div>
-      {/* <span className='block h-[58px] w-[50px] rotate-[-60deg] skew-y-[30deg] overflow-hidden bg-pink-400'>
-        <span className='block h-[58px] w-[50px] rotate-[60deg] skew-y-[-30deg] text-center leading-[58px] text-[#000]'></span>
-      </span> */}
-      <div className='flex'>
+      {/* Hex */}
+      <div className='mt-10 flex'>
         <Hex size={100} spacing={true}>
           <div className='flex flex-col items-center justify-center'>223</div>
         </Hex>
@@ -124,8 +155,19 @@ export default function TestPage() {
           text='123'
           textColor='white'
           textSize='text-xl'
+          spacing={true}
+        />
+        <Hexagon
+          size={150}
+          color='#10B981'
+          hoverColor='#059669'
+          text='123'
+          textColor='white'
+          textSize='text-xl'
+          spacing={true}
         />
       </div>
+      {/* Tab */}
       <div className='mt-10'>
         <TabGroup tabs={tabs} />
       </div>

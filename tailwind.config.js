@@ -95,9 +95,10 @@ module.exports = {
         bounce: 'bounce 1s infinite',
         ping: 'ping 1s cubic-bezier(0, 0, 0.2, 1) infinite',
         textShimmer: 'textShimmer 2.5s ease-out infinite',
-        spin: 'spin 1s linear infinite',
+        spin: 'spin 2s linear infinite',
         fadeIn: 'fadeIn 0.5s ease-in-out',
         fadeOut: 'fadeOut 0.5s ease-in-out forwards',
+        surround: 'surround 2s linear infinite',
       },
       keyframes: {
         // 往右上指
@@ -152,6 +153,10 @@ module.exports = {
         fadeOut: {
           from: { opacity: 0, transform: 'translateX(0%)' },
           to: { opacity: 1, transform: 'translateX(1000%)' },
+        },
+        surround: {
+          '0%': { transform: 'rotate(0deg)' },
+          '100%': { transform: 'rotate(360deg)' },
         },
       },
     },
