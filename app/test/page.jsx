@@ -93,7 +93,7 @@ export default function TestPage() {
           <span className='relative z-10'>Click Me</span>
           {/* <div className='absolute inset-1 bg-gray-900'></div> */}
           <div
-            className='absolute inset-0 z-[-1] animate-surround'
+            className='absolute inset-0 z-[-1] animate-spin'
             style={{
               background: 'conic-gradient(#45ffd8, #bfff45, #45ffd8, #bfff45)',
               // background: 'linear-gradient(to bottom, #45ffd8, #bfff45)',
@@ -112,7 +112,7 @@ export default function TestPage() {
           <span className='z-3 relative'>Click Me</span>
           <div
             className={cn(
-              'absolute inset-0 left-1/2 top-1/2 z-[-1] origin-[0%_0%] animate-surround',
+              'absolute inset-0 left-1/2 top-1/2 z-[-1] origin-[0%_0%] animate-spin',
               'bg-gradient-to-r from-cyan-500 to-blue-500'
             )}
           ></div>
@@ -195,13 +195,16 @@ export default function TestPage() {
       {/* Hex */}
       <div className='mt-10 flex'>
         <Hex size={100} spacing={true}>
-          <div className='flex flex-col items-center justify-center'>223</div>
+          {/* <div className='flex flex-col items-center justify-center'>223</div> */}
         </Hex>
         <Hex size={200} spacing={true}>
-          <div className='flex flex-col items-center justify-center'>123</div>
+          {/* <div className='flex flex-col items-center justify-center'>123</div> */}
+        </Hex>
+        <Hex size={200} spacing={true}>
+          {/* <div className='flex flex-col items-center justify-center'>123</div> */}
         </Hex>
         <Hexagon
-          size={150}
+          size={200}
           color='#10B981'
           hoverColor='#059669'
           text='123'
@@ -210,10 +213,10 @@ export default function TestPage() {
           spacing={true}
         />
         <Hexagon
-          size={150}
+          size={200}
           color='#10B981'
           hoverColor='#059669'
-          text='123'
+          text='233'
           textColor='white'
           textSize='text-xl'
           spacing={true}
@@ -240,12 +243,45 @@ export default function TestPage() {
             'animate-moveTwo absolute h-20 w-20 rounded-[50%] bg-yellow-600'
           )}
         ></div>
-        <div
+        {/* <div
           className={cn(
             'absolute h-[100px] w-[100px] bg-yellow-600 mix-blend-overlay'
           )}
           style={{ animation: 'move 15s linear infinite alternate' }}
-        ></div>
+        ></div> */}
+      </div>
+
+      {/* backgroundBall 2 */}
+      <div className={cn('relative h-[500px] w-[500px]')}>
+        <div className='gradient-bg flex items-center justify-center'>
+          <div className={cn('absolute z-10 text-white')}>123</div>
+          <svg xmlns='http://www.w3.org/2000/svg'>
+            <defs>
+              <filter id='goo'>
+                <feGaussianBlur
+                  in='SourceGraphic'
+                  stdDeviation='10'
+                  result='blur'
+                />
+                <feColorMatrix
+                  in='blur'
+                  mode='matrix'
+                  values='1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -8'
+                  result='goo'
+                />
+                <feBlend in='SourceGraphic' in2='goo' />
+              </filter>
+            </defs>
+          </svg>
+          <div className='gradients-container'>
+            <div className='g1'></div>
+            <div className='g2'></div>
+            <div className='g3'></div>
+            <div className='g4'></div>
+            <div className='g5'></div>
+            <div className='interactive'></div>
+          </div>
+        </div>
       </div>
     </div>
   );

@@ -42,10 +42,15 @@ export default function Hex({ size, spacing, children }) {
           {children}
         </div>
       </div>
-      {/* <div className={cn('relative')}>
+      {/* <div
+        className={cn(
+          `relative h-[${size}px] w-[${size}px]`,
+          spacing && 'mr-5'
+        )}
+      >
         <div
           className={cn(
-            'absolute rotate-[90deg] border-b-2 border-t-2 border-black'
+            `absolute rotate-[90deg] border-b-2 border-t-2 border-black`
           )}
           style={{
             width: `${size}` / Math.sqrt(3) + 'px',
