@@ -13,6 +13,11 @@ import { testPOST } from '@/actions/test';
 import Hex from '@/components/hex/hex';
 import Hexagon from '@/components/hex/hexagon';
 import TabGroup from '@/components/tab/tabGroup';
+import Carousel from '@/components/carousel/Carousel';
+import CarouselWithPreview from '@/components/carousel/CarouselWithPreview';
+import BallMove from '@/components/background/BallMove';
+import Move from '@/components/background/Move';
+import Glassmorphism from '@/components/background/Glassmorphism';
 
 export default function TestPage() {
   const [state, formAction] = useFormState(testPOST, {});
@@ -223,65 +228,31 @@ export default function TestPage() {
         />
       </div>
       {/* Tab */}
-      <div className={cn('mt-5')}>
+      <div className={cn('my-5')}>
         <TabGroup tabs={tabs} />
       </div>
-      {/* backgroundBall */}
-      <div className={cn('relative mt-5 h-[190px] w-[250px] bg-gray-100')}>
-        <div
-          className={cn(
-            'relative z-10 h-full w-full bg-[#ffffff8c] mix-blend-overlay backdrop-blur-[8px]'
-          )}
-        ></div>
-        <div
-          className={cn(
-            'animate-moveOne absolute h-20 w-20 rounded-[50%]  bg-green-600'
-          )}
-        ></div>
-        <div
-          className={cn(
-            'animate-moveTwo absolute h-20 w-20 rounded-[50%] bg-yellow-600'
-          )}
-        ></div>
-        {/* <div
-          className={cn(
-            'absolute h-[100px] w-[100px] bg-yellow-600 mix-blend-overlay'
-          )}
-          style={{ animation: 'move 15s linear infinite alternate' }}
-        ></div> */}
-      </div>
 
-      {/* backgroundBall 2 */}
-      <div className={cn('relative h-[500px] w-[500px]')}>
-        <div className='gradient-bg flex items-center justify-center'>
-          <div className={cn('absolute z-10 text-white')}>123</div>
-          <svg xmlns='http://www.w3.org/2000/svg'>
-            <defs>
-              <filter id='goo'>
-                <feGaussianBlur
-                  in='SourceGraphic'
-                  stdDeviation='10'
-                  result='blur'
-                />
-                <feColorMatrix
-                  in='blur'
-                  mode='matrix'
-                  values='1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -8'
-                  result='goo'
-                />
-                <feBlend in='SourceGraphic' in2='goo' />
-              </filter>
-            </defs>
-          </svg>
-          <div className='gradients-container'>
-            <div className='g1'></div>
-            <div className='g2'></div>
-            <div className='g3'></div>
-            <div className='g4'></div>
-            <div className='g5'></div>
-            <div className='interactive'></div>
-          </div>
-        </div>
+      {/* Move */}
+      <Move />
+      {/* BallMove */}
+      <div className={cn('my-10 h-[190px] w-[250px]')}>
+        <BallMove>
+          <div className={cn('text-xl text-white')}>123</div>
+        </BallMove>
+      </div>
+      {/* Glassmorphism */}
+      <div className={cn('my-5 h-[500px] w-[1000px]')}>
+        <Glassmorphism>
+          <div className={cn('text-xl text-white')}>2322323</div>
+        </Glassmorphism>
+      </div>
+      {/* Carousel */}
+      <div className='my-5 h-[500px] w-[600px]'>
+        <Carousel autoPlayInterval={5000} />
+      </div>
+      {/* CarouselWithPreview */}
+      <div className='my-5 h-[500px] w-full'>
+        <CarouselWithPreview autoPlayInterval={5000} />
       </div>
     </div>
   );

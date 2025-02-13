@@ -1,0 +1,12 @@
+@keyframes move {
+  0% {
+    -webkit-transform: translate(-400px, -100px) rotate(-90deg);
+    transform: translate(-300px, -100px) rotate(-90deg);
+    border-radius: 24% 76% 35% 65% / 76% 24% 33% 67%;
+  }
+  100% {
+    -webkit-transform: translate(400px, 100px) rotate(-10deg);
+    transform: translate(400px, 100px) rotate(-10deg);
+    border-radius: 76% 24% 33% 67% / 24% 76% 35% 65%;
+  }
+}
