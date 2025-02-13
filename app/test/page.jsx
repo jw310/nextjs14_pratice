@@ -18,6 +18,7 @@ import CarouselWithPreview from '@/components/carousel/CarouselWithPreview';
 import BallMove from '@/components/background/BallMove';
 import Move from '@/components/background/Move';
 import Glassmorphism from '@/components/background/Glassmorphism';
+import Card from '@/components/card/Card';
 
 export default function TestPage() {
   const [state, formAction] = useFormState(testPOST, {});
@@ -254,6 +255,9 @@ export default function TestPage() {
       <div className='my-5 h-[500px] w-full'>
         <CarouselWithPreview autoPlayInterval={5000} />
       </div>
+
+      {/* Card */}
+      <Card></Card>
     </div>
   );
 }
