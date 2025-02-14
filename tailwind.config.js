@@ -104,10 +104,6 @@ module.exports = {
         animationTop: 'animationTop 2s linear infinite',
         animationRight: 'animationRight 2s linear infinite',
         animationBottom: 'animationBottom 2s linear infinite',
-        showData: 'showData 1s forwards',
-        showOverflow: 'showOverflow 2s forwards',
-        removeOverflow: 'removeOverflow 2s forwards',
-        removeData: 'removeData 1s forwards',
       },
       keyframes: {
         // 往右上指
@@ -193,39 +189,6 @@ module.exports = {
           '0%': { bottom: '-100%' },
           '50%, 100%': { bottom: '100%' },
         },
-        showData: {
-          '50%': {
-            transform: 'translateY(-10rem)',
-          },
-          '100%': {
-            transform: 'translateY(-7rem)',
-          },
-        },
-        showOverflow: {
-          '0%': {
-            overflow: 'initial',
-            pointerEvents: 'none',
-          },
-          '50%': {
-            overflow: 'hidden',
-          },
-        },
-        removeOverflow: {
-          to: {
-            overflow: 'initial',
-          },
-        },
-        removeData: {
-          '0%': {
-            transform: 'translateY(-7rem)',
-          },
-          '50%': {
-            transform: 'translateY(-10rem)',
-          },
-          '100%': {
-            transform: 'translateY(0.5rem)',
-          },
-        },
       },
     },
   },
@@ -233,7 +196,7 @@ module.exports = {
   variants: {
     extend: {
       // animate 可以用在 hover，e.g. hover:animate-xxxx
-      animation: ['hover'],
+      animation: ['hover', 'group-hover'],
     },
   },
   plugins: [],

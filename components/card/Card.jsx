@@ -6,51 +6,74 @@ import './Card.css';
 
 import { cn } from '@/lib/clsx';
 
-export default function Card({}) {
+export default function Card({
+  images = [
+    {
+      src: 'https://picsum.photos/500/400?random=1',
+      title: 'Vancouver Mountains, Canada',
+      description: 'The Great Path',
+    },
+    {
+      src: 'https://picsum.photos/500/400?random=2',
+      title: 'Vancouver Mountains, Canada2',
+      description: 'The Great Path',
+    },
+    {
+      src: 'https://picsum.photos/500/400?random=2',
+      title: 'Vancouver Mountains, Canada2',
+      description: 'The Great Path',
+    },
+  ],
+}) {
   return (
     <>
-      <div className={cn('')}>
-        <article
-          className={cn(
-            'group relative overflow-hidden'
-            // '[&:not(:hover)]:animate-showOverflow [&:not(:hover)]:removeData'
-          )}
-        >
-          <img
-            src='https://picsum.photos/500/400?random=1'
-            alt='image'
-            className={cn('block h-auto max-w-full')}
-          />
-
-          <div
-            className={cn(
-              'absolute bottom-[1.5rem] left-0 right-0 w-[280px] bg-white px-[1.5rem] py-[2rem] opacity-0',
-              // 'group-hover:animate-showData group-hover::opacity-1 group-hover::duration-[3s] rounded-[1rem]'
-              'group-hover:opacity-1'
-            )}
-            style={{
-              boxShadow: '0 8px 24px hsla(0, 0%, 0%, 0.15)',
-              transition: 'opacity 1s 1s',
-              marginInline: 'auto',
-            }}
-          >
-            <span className={cn('mb-[0.25rem] block text-base')}>
-              Vancouver Mountains, Canada
-            </span>
-            <h2 className={cn('text-ml mb-[0.75rem] font-bold text-gray-500')}>
-              The Great Path
-            </h2>
-            <a
-              href='#'
-              className={cn(
-                'decoration-none text-base font-medium text-black',
-                'hover:underline'
-              )}
+      <div
+        className={cn(
+          'grid grid-cols-2 gap-2'
+          // 'grid-flow-col'
+        )}
+      >
+        {images.map((image, index) => (
+          <div key={image.title} className={cn('')}>
+            <article
+              className={cn('card__article relative m-5 overflow-hidden')}
             >
-              Read More
-            </a>
+              <img
+                src={image.src}
+                alt={image.title}
+                className={cn('block rounded-md')}
+              />
+
+              <div
+                className={cn(
+                  'card__data',
+                  'opacity-1 absolute -bottom-[9rem] left-0 right-0 mx-auto w-2/3 rounded-xl bg-gray-300 px-[1.5rem] py-[2rem]'
+                )}
+                style={{
+                  boxShadow: '0 8px 24px rgba(0, 0, 0, 0.15)',
+                }}
+              >
+                <span className={cn('mb-[0.25rem] block text-base')}>
+                  {image.title}
+                </span>
+                <h2
+                  className={cn('text-ml mb-[0.75rem] font-bold text-gray-500')}
+                >
+                  {image.description}
+                </h2>
+                <a
+                  href='#'
+                  className={cn(
+                    'decoration-none text-base font-medium text-black',
+                    'hover:underline'
+                  )}
+                >
+                  Read More
+                </a>
+              </div>
+            </article>
           </div>
-        </article>
+        ))}
       </div>
     </>
   );
