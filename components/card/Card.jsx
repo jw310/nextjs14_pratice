@@ -18,26 +18,19 @@ export default function Card({
       title: 'Vancouver Mountains, Canada2',
       description: 'The Great Path',
     },
-    {
-      src: 'https://picsum.photos/500/400?random=2',
-      title: 'Vancouver Mountains, Canada2',
-      description: 'The Great Path',
-    },
   ],
 }) {
   return (
     <>
       <div
         className={cn(
-          'grid grid-cols-2 gap-2'
+          'grid grid-cols-2 gap-5'
           // 'grid-flow-col'
         )}
       >
         {images.map((image, index) => (
           <div key={image.title} className={cn('')}>
-            <article
-              className={cn('card__article relative m-5 overflow-hidden')}
-            >
+            <article className={cn('card__article relative overflow-hidden')}>
               <img
                 src={image.src}
                 alt={image.title}

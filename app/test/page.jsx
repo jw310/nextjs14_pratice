@@ -20,6 +20,7 @@ import BallMove from '@/components/background/BallMove';
 import Move from '@/components/background/Move';
 import Glassmorphism from '@/components/background/Glassmorphism';
 import Card from '@/components/card/Card';
+import Card2 from '@/components/card/Card2';
 
 export default function TestPage() {
   const [state, formAction] = useFormState(testPOST, {});
@@ -212,8 +213,13 @@ export default function TestPage() {
       </div>
 
       {/* Card */}
-      <div className={cn('my-5')}>
+      <div className={cn('my-10')}>
         <Card images={undefined}></Card>
+      </div>
+
+      {/* Card2 */}
+      <div className={cn('my-10 h-[=500px] w-[500px]')}>
+        <Card2 images={undefined}></Card2>
       </div>
     </div>
   );

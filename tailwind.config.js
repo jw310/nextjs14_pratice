@@ -197,6 +197,7 @@ module.exports = {
     extend: {
       // animate 可以用在 hover，e.g. hover:animate-xxxx
       animation: ['hover', 'group-hover'],
+      opacity: ['hover', 'group-hover'],
     },
   },
   plugins: [],
