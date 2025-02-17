@@ -4,11 +4,16 @@ import { useState } from 'react';
 
 import { cn } from '@/lib/clsx';
 
+import './Card2.css';
+
 export default function Card2({ images }) {
   return (
     <>
       <div
-        className={cn('group relative block cursor-pointer overflow-hidden')}
+        className={cn(
+          'card',
+          'relative h-full w-full cursor-pointer overflow-hidden rounded-md'
+        )}
       >
         <img
           src='https://picsum.photos/500/400?random=1'
@@ -17,10 +22,17 @@ export default function Card2({ images }) {
         />
         <div
           className={cn(
-            'opacity-1 bg-white-800/70 z-1 absolute h-full w-full text-center'
+            'mask',
+            'absolute left-0 top-0 h-full w-full bg-gray-800/70 text-center opacity-0'
           )}
         >
-          <h1>Test</h1>
+          <h1
+            className={cn(
+              'absolute w-full text-white transition-all duration-300 ease-in-out'
+            )}
+          >
+            Test
+          </h1>
         </div>
       </div>
     </>
