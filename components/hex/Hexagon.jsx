@@ -30,14 +30,14 @@ const Hexagon = ({
     // [0.75, 1],
     // [0.25, 1],
   ]
-    .map(([x, y]) => `${x * size},${y * size}`)
+    .map(([x, y]) => `${x * size},${y * size * 1.1547}`)
     .join(' ');
 
   return (
     <div className={cn('relative inline-block', spacing && 'mr-2')}>
       <svg
         width={size}
-        height={size}
+        height={size * 1.1547}
         className={cn('transform transition-colors duration-300')}
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}

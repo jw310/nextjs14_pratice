@@ -155,35 +155,14 @@ export default function TestPage() {
         </svg>
       </div>
       {/* Hex */}
-      <div className='mt-10 flex'>
-        <Hex size={100} spacing={true}>
-          {/* <div className='flex flex-col items-center justify-center'>223</div> */}
+      <div className='my-10 flex'>
+        <Hex size={300} spacing={true}>
+          <div className='flex flex-col items-center justify-center'>223</div>
         </Hex>
-        <Hex size={200} spacing={true}>
-          {/* <div className='flex flex-col items-center justify-center'>123</div> */}
-        </Hex>
-        <Hex size={200} spacing={true}>
-          {/* <div className='flex flex-col items-center justify-center'>123</div> */}
-        </Hex>
-        <Hexagon
-          size={200}
-          color='#10B981'
-          hoverColor='#059669'
-          text='123'
-          textColor='white'
-          textSize='text-xl'
-          spacing={true}
-        />
-        <Hexagon
-          size={200}
-          color='#10B981'
-          hoverColor='#059669'
-          text='233'
-          textColor='white'
-          textSize='text-xl'
-          spacing={true}
-        />
+
+        <Hexagon size={300}></Hexagon>
       </div>
+
       {/* Tab */}
       <div className={cn('my-5')}>
         <TabGroup tabs={tabs} />

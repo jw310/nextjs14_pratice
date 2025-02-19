@@ -15,7 +15,10 @@ export default function Hex({ size, spacing, children }) {
     <>
       <div className={cn(spacing && 'mr-2')}>
         <div
-          className={cn('relative border-l-2 border-r-2 border-gray-900')}
+          className={cn(
+            'relative border-l-2 border-r-2 before:border-gray-900'
+            // 'before:absolute before:-inset-5 before:block before:border-l-2 before:border-r-2 before:border-gray-900'
+          )}
           style={{
             height: `${size}` / Math.sqrt(3) + 'px',
             width: `${size + 2}px`,
@@ -24,6 +27,7 @@ export default function Hex({ size, spacing, children }) {
           <div
             className={cn(
               'absolute rotate-[-60deg] border-l-2 border-r-2 border-gray-900'
+              // 'before:absolute before:-inset-5 before:border-l-2 before:border-r-2 before:border-gray-900'
             )}
             style={{
               height: `${size}` / Math.sqrt(3) + 'px',
@@ -33,6 +37,7 @@ export default function Hex({ size, spacing, children }) {
           <div
             className={cn(
               'absolute rotate-[60deg] border-l-2 border-r-2 border-gray-900'
+              // 'before:absolute before:-inset-5 before:border-l-2 before:border-r-2 before:border-gray-900'
             )}
             style={{
               height: `${size}` / Math.sqrt(3) + 'px',
