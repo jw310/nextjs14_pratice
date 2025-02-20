@@ -6,7 +6,7 @@ import { cn } from '@/lib/clsx';
 
 import './Card2.css';
 
-export default function Card2({ images }) {
+export default function Card2({ image, text }) {
   return (
     <>
       <div
@@ -31,7 +31,7 @@ export default function Card2({ images }) {
               'absolute w-full text-white transition-all duration-300 ease-in-out'
             )}
           >
-            Test
+            {text}
           </h1>
         </div>
       </div>

@@ -35,6 +35,13 @@ export default function TestPage() {
     { label: 'Tab 2', content: <Tab2Content /> },
   ];
 
+  const images = [
+    {
+      image: 'https://picsum.photos/500/400?random=1',
+      text: 'test',
+    },
+  ];
+
   return (
     <div className='flex flex-col items-center justify-center gap-10'>
       <Image
@@ -155,12 +162,43 @@ export default function TestPage() {
         </svg>
       </div>
       {/* Hex */}
-      <div className='my-10 flex'>
-        <Hex size={300} spacing={true}>
-          <div className='flex flex-col items-center justify-center'>223</div>
-        </Hex>
-
-        <Hexagon size={300}></Hexagon>
+      <div className='flex h-[500px] w-[1000px] items-center justify-center gap-3'>
+        <div className='relative h-[250px] w-[250px]'>
+          <div className='absolute -translate-x-1/2 -translate-y-1/2'>
+            <Hex size={250} spacing={true}>
+              <div className='flex flex-col items-center justify-center'>
+                223
+              </div>
+            </Hex>
+          </div>
+          <div className='absolute -translate-x-1/2 -translate-y-1/2'>
+            <Hexagon size={220}></Hexagon>
+          </div>
+        </div>
+        <div className='relative h-[250px] w-[250px]'>
+          <div className='absolute -translate-x-1/2 -translate-y-1/2'>
+            <Hex size={250} spacing={true}>
+              <div className='flex flex-col items-center justify-center'>
+                223
+              </div>
+            </Hex>
+          </div>
+          <div className='absolute -translate-x-1/2 -translate-y-1/2'>
+            <Hexagon size={220}></Hexagon>
+          </div>
+        </div>
+        <div className='relative h-[250px] w-[250px]'>
+          <div className='absolute -translate-x-1/2 -translate-y-1/2'>
+            <Hex size={250} spacing={true}>
+              <div className='flex flex-col items-center justify-center'>
+                223
+              </div>
+            </Hex>
+          </div>
+          <div className='absolute -translate-x-1/2 -translate-y-1/2'>
+            <Hexagon size={220}></Hexagon>
+          </div>
+        </div>
       </div>
 
       {/* Tab */}
@@ -198,7 +236,7 @@ export default function TestPage() {
 
       {/* Card2 */}
       <div className={cn('my-10 h-[=500px] w-[500px]')}>
-        <Card2 images={undefined}></Card2>
+        <Card2 image={images[0].image} text={images[0].text}></Card2>
       </div>
     </div>
   );
