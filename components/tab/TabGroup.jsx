@@ -16,8 +16,8 @@ const TabGroup = ({ tabs }) => {
   // ];
 
   return (
-    <div className='w-full'>
-      <div className='flex border-b border-gray-200'>
+    <div className='flex w-full flex-col items-center justify-center'>
+      <div className='flex justify-center border-gray-200'>
         {tabs.map((tab, index) => (
           <button
             key={index}
