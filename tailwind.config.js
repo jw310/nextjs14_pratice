@@ -104,6 +104,7 @@ module.exports = {
         animationTop: 'animationTop 2s linear infinite',
         animationRight: 'animationRight 2s linear infinite',
         animationBottom: 'animationBottom 2s linear infinite',
+        borderSurround: 'borderSurround 3s linear infinite',
       },
       keyframes: {
         // 往右上指
@@ -188,6 +189,12 @@ module.exports = {
         animationBottom: {
           '0%': { bottom: '-100%' },
           '50%, 100%': { bottom: '100%' },
+        },
+        borderSurround: {
+          '0%, 100%': { clipPath: 'inset(0 0 98% 0)' },
+          '25%': { clipPath: 'inset(0 98% 0 0)' },
+          '50%': { clipPath: 'inset(98% 0 0 0)' },
+          '75%': { clipPath: 'inset(0 0 0 98%)' },
         },
       },
     },

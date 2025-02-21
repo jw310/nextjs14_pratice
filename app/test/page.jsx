@@ -121,6 +121,19 @@ export default function TestPage() {
         <SurroundLightBtn text={'Click Me'} />
       </div>
 
+      <div
+        className={cn(
+          'relative h-[60px] w-[150px] rounded-md border-2 border-gray-300 bg-[#eee]'
+        )}
+      >
+        <div
+          className={cn(
+            'before:animate-borderSurround before:absolute before:h-full before:w-full before:rounded-md before:border-2 before:border-[#000] before:content-[""]'
+            // 'after:animate-borderSurround after:absolute after:h-full after:w-full after:rounded-md after:border-2 after:border-[#000] after:content-[""]'
+          )}
+        ></div>
+      </div>
+
       {/* <div className='flex flex-col items-center justify-center'>
         <button
           className={cn(
