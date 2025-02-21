@@ -128,7 +128,7 @@ export default function TestPage() {
       >
         <div
           className={cn(
-            'before:animate-borderSurround before:absolute before:h-full before:w-full before:rounded-md before:border-2 before:border-[#000] before:content-[""]'
+            'before:absolute before:left-0 before:top-0 before:h-full before:w-full before:animate-borderSurround before:rounded-md before:border-2 before:border-[#000] before:content-[""]'
             // 'after:animate-borderSurround after:absolute after:h-full after:w-full after:rounded-md after:border-2 after:border-[#000] after:content-[""]'
           )}
         ></div>
