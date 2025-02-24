@@ -23,6 +23,7 @@ import Card from '@/components/card/Card';
 import Card2 from '@/components/card/Card2';
 import DiamondGradient from '@/components/background/DiamondGradient';
 import DiamondGradient2 from '@/components/background/DiamondGradient2';
+import Test from '@/components/background/Test';
 
 export default function TestPage() {
   const [state, formAction] = useFormState(testPOST, {});
@@ -262,6 +263,11 @@ export default function TestPage() {
       {/* DiamondGradient2 */}
       <div className={cn('my-10')}>
         <DiamondGradient2 width={500} height={500}></DiamondGradient2>
+      </div>
+
+      {/* Test */}
+      <div className={cn('my-10')}>
+        <Test width={500} height={500}></Test>
       </div>
     </div>
   );
