@@ -1,18 +1,20 @@
-.card:hover .mask {
-  opacity: 1;
-}
+@media screen and (min-width: 1024px) {
+  .card:hover .mask {
+    opacity: 1;
+  }
 
-.card .mask h1 {
-  position: absolute;
-  bottom: 0;
-  margin: 0;
-  width: 100%;
-  transform: translateY(0);
-  padding: 10px;
-  /* background-color: rgba(255, 255, 150, 0.7); */
-}
+  .card .mask h1 {
+    position: absolute;
+    bottom: 0;
+    margin: 0;
+    width: 100%;
+    transform: translateY(0);
+    /* padding: 10px; */
+    /* background-color: rgba(255, 255, 150, 0.7); */
+  }
 
-.card:hover h1 {
-  transform: translateY(-270%);
-  opacity: 1;
+  .card:hover h1 {
+    transform: translateY(-260%);
+    opacity: 1;
+  }
 }

@@ -23,7 +23,8 @@ import Card from '@/components/card/Card';
 import Card2 from '@/components/card/Card2';
 import DiamondGradient from '@/components/background/DiamondGradient';
 import DiamondGradient2 from '@/components/background/DiamondGradient2';
-import Test from '@/components/background/Test';
+import DiamondGradient3 from '@/components/background/DiamondGradient3';
+import TabContent from '@/components/tab/TabContent';
 
 export default function TestPage() {
   const [state, formAction] = useFormState(testPOST, {});
@@ -34,7 +35,7 @@ export default function TestPage() {
   const Tab2Content = () => <div>Tab 2 Content</div>;
 
   const tabs = [
-    { label: 'Tab 1', content: <Tab1Content /> },
+    { label: 'Tab 1', content: <TabContent /> },
     { label: 'Tab 2', content: <Tab2Content /> },
   ];
 
@@ -267,7 +268,7 @@ export default function TestPage() {
 
       {/* Test */}
       <div className={cn('my-10')}>
-        <Test width={500} height={500}></Test>
+        <DiamondGradient3 width={500} height={500}></DiamondGradient3>
       </div>
     </div>
   );
