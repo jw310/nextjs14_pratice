@@ -21,6 +21,8 @@ import Move from '@/components/background/Move';
 import Glassmorphism from '@/components/background/Glassmorphism';
 import Card from '@/components/card/Card';
 import Card2 from '@/components/card/Card2';
+import DiamondGradient from '@/components/background/DiamondGradient';
+import DiamondGradient2 from '@/components/background/DiamondGradient2';
 
 export default function TestPage() {
   const [state, formAction] = useFormState(testPOST, {});
@@ -250,6 +252,16 @@ export default function TestPage() {
       {/* Card2 */}
       <div className={cn('my-10 h-[=500px] w-[500px]')}>
         <Card2 image={images[0].image} text={images[0].text}></Card2>
+      </div>
+
+      {/* DiamondGradient */}
+      <div className={cn('my-10')}>
+        <DiamondGradient width={500} height={500}></DiamondGradient>
+      </div>
+
+      {/* DiamondGradient2 */}
+      <div className={cn('my-10')}>
+        <DiamondGradient2 width={500} height={500}></DiamondGradient2>
       </div>
     </div>
   );
