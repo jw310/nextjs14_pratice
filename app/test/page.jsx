@@ -25,6 +25,9 @@ import DiamondGradient from '@/components/background/DiamondGradient';
 import DiamondGradient2 from '@/components/background/DiamondGradient2';
 import DiamondGradient3 from '@/components/background/DiamondGradient3';
 import TabContent from '@/components/tab/TabContent';
+import Hexagon2 from '@/components/hex/Hexagon2';
+import Button from '@/components/button/Button';
+import ALink from '@/components/button/ALink';
 
 export default function TestPage() {
   const [state, formAction] = useFormState(testPOST, {});
@@ -72,7 +75,7 @@ export default function TestPage() {
         </button>
       </form>
       {/* Button */}
-      <div className='m-auto rounded-lg bg-gray-600 px-6 py-3 text-gray-200'>
+      <div className='m-auto cursor-pointer rounded-lg bg-gray-600 px-6 py-3 text-gray-200'>
         <div className='group relative overflow-hidden'>
           <span className='invisible'>Hover over me</span>
           <span className='absolute left-0 top-0 transition-transform duration-500 ease-in-out hover:duration-300 group-hover:-translate-y-full'>
@@ -83,17 +86,17 @@ export default function TestPage() {
           </span>
         </div>
       </div>
-      <div className='m-auto text-gray-200'>
+      <div className='m-auto cursor-pointer text-gray-200'>
         <div className='rounded-lg bg-gray-200 px-6 py-3 text-black transition-transform duration-200 ease-in-out hover:scale-110 active:scale-90'>
           Hover &amp; hold me
         </div>
       </div>
-      <div className='m-auto text-gray-200'>
+      <div className='m-auto cursor-pointer text-gray-200'>
         <div className='animate-textShimmer bg-[linear-gradient(110deg,#e2e8f0,45%,#1e293b,55%,#e2e8f0)] bg-[length:250%_100%] bg-clip-text text-transparent'>
           Text Shimmer Effect
         </div>
       </div>
-      <div className='m-auto rounded-lg bg-gray-600 px-6 py-3 text-gray-200'>
+      <div className='m-auto cursor-pointer rounded-lg bg-gray-600 px-6 py-3 text-gray-200'>
         <div className='relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 after:bg-gray-200 after:transition-transform after:duration-300 after:ease-in-out hover:after:origin-bottom-left hover:after:scale-x-100'>
           Hover over me
         </div>
@@ -107,6 +110,7 @@ export default function TestPage() {
           </div>
         </a>
       </Link>
+
       <div className='flex flex-col items-center justify-center'>
         <button className='relative overflow-hidden rounded-md px-6 py-3 text-xl font-bold uppercase tracking-wide text-white before:absolute before:inset-1 before:rounded-md before:bg-gray-500'>
           <span className='relative z-10'>Click Me</span>
@@ -136,6 +140,14 @@ export default function TestPage() {
             // 'after:animate-borderSurround after:absolute after:h-full after:w-full after:rounded-md after:border-2 after:border-[#000] after:content-[""]'
           )}
         ></div>
+      </div>
+
+      <div>
+        <Button text={'Click Me'} />
+      </div>
+
+      <div>
+        <ALink text={'Click Me'} />
       </div>
 
       {/* <div className='flex flex-col items-center justify-center'>
@@ -269,6 +281,26 @@ export default function TestPage() {
       {/* Test */}
       <div className={cn('my-10')}>
         <DiamondGradient3 width={500} height={500}></DiamondGradient3>
+      </div>
+
+      {/* Test */}
+      <div className={cn('my-10')}>
+        <Hexagon2
+          size={500}
+          outerBorderWidth={6}
+          innerBorderWidth={3}
+          outerBorderColor='#334155'
+          innerBorderColor='#64748b'
+          fillColor='#f8fafc'
+        />
+        <Hexagon2
+          size={220}
+          outerBorderWidth={2}
+          innerBorderWidth={3}
+          outerBorderColor='#334155'
+          innerBorderColor='#64748b'
+          fillColor='#f8fafc'
+        />
       </div>
     </div>
   );

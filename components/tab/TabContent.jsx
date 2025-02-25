@@ -44,12 +44,12 @@ const TabContent = () => {
             >
               <h1
                 className={
-                  'text-center text-[24px] font-bold text-grey-100 lg:text-left lg:text-[36px]'
+                  'text-center text-[24px] font-bold text-grey-500 lg:text-left lg:text-[36px]'
                 }
               >
                 {el.title}
               </h1>
-              <p className='mb-5 text-left text-xs font-bold leading-8 text-white lg:text-[18px] lg:font-normal lg:leading-9'>
+              <p className='mb-5 text-left text-xs font-bold leading-8 text-black lg:text-[18px] lg:font-normal lg:leading-9'>
                 {el.content}
               </p>
             </div>
