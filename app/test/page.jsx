@@ -28,6 +28,7 @@ import TabContent from '@/components/tab/TabContent';
 import Hexagon2 from '@/components/hex/Hexagon2';
 import Button from '@/components/button/Button';
 import ALink from '@/components/button/ALink';
+import Carousel2 from '@/components/carousel/Carousel2';
 
 export default function TestPage() {
   const [state, formAction] = useFormState(testPOST, {});
@@ -301,6 +302,11 @@ export default function TestPage() {
           innerBorderColor='#64748b'
           fillColor='#f8fafc'
         />
+      </div>
+
+      {/* Carousel2 */}
+      <div className='my-5 h-[500px] w-full'>
+        <Carousel2 slides={undefined} autoPlayInterval={5000}></Carousel2>
       </div>
     </div>
   );
