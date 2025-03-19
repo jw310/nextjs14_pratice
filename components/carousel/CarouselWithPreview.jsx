@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback, useRef } from 'react';
 
 import { cn } from '@/lib/clsx';
 
@@ -13,6 +13,10 @@ const CarouselWithPreview = ({
   autoPlayInterval = 3000,
 }) => {
   const [index, setIndex] = useState(0);
+  const [touchStart, setTouchStart] = useState(null);
+  const [touchEnd, setTouchEnd] = useState(null);
+  const autoPlayTimerRef = useRef(null);
+
   const nextSlide = useCallback(
     () => setIndex((prev) => (prev + 1) % slides.length),
     []
@@ -22,10 +26,70 @@ const CarouselWithPreview = ({
     []
   );
 
+  // 處理觸控開始
+  const handleTouchStart = (e) => {
+    setTouchEnd(null);
+    setTouchStart(e.targetTouches[0].clientX);
+
+    // 暫停自動輪播
+    if (autoPlayTimerRef.current) {
+      clearInterval(autoPlayTimerRef.current);
+    }
+  };
+
+  // 處理觸控移動
+  const handleTouchMove = (e) => {
+    setTouchEnd(e.targetTouches[0].clientX);
+  };
+
+  // 處理觸控結束
+  const handleTouchEnd = () => {
+    if (!touchStart || !touchEnd) return;
+
+    const distance = touchStart - touchEnd;
+    const isLeftSwipe = distance > 50;
+    const isRightSwipe = distance < -50;
+
+    if (isLeftSwipe) {
+      nextSlide();
+    } else if (isRightSwipe) {
+      prevSlide();
+    }
+
+    // 恢復自動輪播
+    startAutoPlay();
+  };
+
+  // 開始自動輪播
+  const startAutoPlay = useCallback(() => {
+    if (autoPlayTimerRef.current) {
+      clearInterval(autoPlayTimerRef.current);
+    }
+    autoPlayTimerRef.current = setInterval(nextSlide, autoPlayInterval);
+  }, [autoPlayInterval, nextSlide]);
+
+  // 暫停自動輪播
+  const pauseAutoPlay = () => {
+    if (autoPlayTimerRef.current) {
+      clearInterval(autoPlayTimerRef.current);
+    }
+  };
+
+  // 跳轉到指定幻燈片
+  const goToSlide = (slideIndex) => {
+    setIndex(slideIndex);
+    pauseAutoPlay();
+    setTimeout(startAutoPlay, 1000); // 跳轉後延遲一秒重新開始自動輪播
+  };
+
   useEffect(() => {
-    const interval = setInterval(nextSlide, autoPlayInterval);
-    return () => clearInterval(interval);
-  }, [nextSlide]);
+    startAutoPlay();
+    return () => {
+      if (autoPlayTimerRef.current) {
+        clearInterval(autoPlayTimerRef.current);
+      }
+    };
+  }, [startAutoPlay]);
 
   return (
     <>
@@ -33,6 +97,8 @@ const CarouselWithPreview = ({
         className={cn(
           'relative mx-auto flex h-full w-full items-center overflow-hidden rounded-2xl p-5 shadow-lg'
         )}
+        onMouseEnter={pauseAutoPlay}
+        onMouseLeave={startAutoPlay}
       >
         {/* prev button */}
         <button
@@ -52,6 +118,9 @@ const CarouselWithPreview = ({
           <div
             className={cn('flex transition-transform duration-500 ease-in-out')}
             style={{ transform: `translateX(-${index * 100}%)` }}
+            onTouchStart={handleTouchStart}
+            onTouchMove={handleTouchMove}
+            onTouchEnd={handleTouchEnd}
           >
             {slides.map((img, i) => (
               <div
@@ -118,13 +187,15 @@ const CarouselWithPreview = ({
       {/* indicator outside */}
       <div className={cn('mt-5 flex justify-center gap-2')}>
         {slides.map((_, i) => (
-          <span
+          <button
             key={i}
             className={cn(
               `h-2 w-2 rounded-full`,
               index === i ? 'w-4 bg-white' : 'bg-gray-400'
             )}
-          />
+            onClick={() => goToSlide(i)}
+            aria-label={`Go to slide ${i + 1}`}
+          ></button>
         ))}
       </div>
     </>
